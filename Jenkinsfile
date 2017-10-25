@@ -10,10 +10,10 @@ node {
         '''
     }
     stage('Build image') {
-        app = docker.build("goxplanet/workshop-jenkins")
+        app = docker.build("demo/app")
     }
     stage('Push image') {
-        docker.withRegistry('https://registry.cn-hangzhou.aliyuncs.com/goxplanet/workshop-jenkins', 'docker-ali') {
+        docker.withRegistry('http://nexus.local', '') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
