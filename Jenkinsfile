@@ -10,7 +10,7 @@ node {
         '''
     }
     stage('Build image') {
-        app = docker.build("demo/app")
+        app = docker.build("172.17.0.1:5000/app")
     }
     stage('Push image') {
         docker.withRegistry('http://nexus.local', '') {
