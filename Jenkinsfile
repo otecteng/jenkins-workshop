@@ -10,10 +10,10 @@ node {
         '''
     }
     stage('Build image') {
-        app = docker.build("172.17.0.1:5000/app")
+        app = docker.build("demo/app")
     }
     stage('Push image') {
-        docker.withRegistry('http://nexus.local', '') {
+        docker.withRegistry('http://172.17.0.1:5000', 'nexus') {
             app.push("${env.BUILD_NUMBER}")
             app.push("latest")
         }
