@@ -1,0 +1,6 @@
+version: '3'
+services:
+  web:
+    image: 118.178.240.29:5000/demo/app:latest
+    ports:
+     - "4567:8080"
