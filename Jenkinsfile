@@ -23,7 +23,7 @@ node {
     input 'deploy to qa?'
     stage('deploy') {
         sh '''
-            docker-compose
+            docker-compose --host 118.178.240.29 up --force-recreate -d
         '''
     }
 }
